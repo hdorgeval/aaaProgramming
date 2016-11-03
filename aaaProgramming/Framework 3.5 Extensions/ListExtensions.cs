@@ -11,13 +11,13 @@ namespace FrameworkExtensions
     public static partial class ListExtensions
     {
         /// <summary>
-        /// Check if input Ilist of T is null or empty.
+        /// Check if input list is null or empty.
         /// </summary>
         /// <typeparam name="T">Any .Net Framework Type</typeparam>
-        /// <param name="input">Input IList of T</param>
+        /// <param name="input">Input list</param>
         /// <returns>Returns true if the list is null or empty</returns>
         ///<remarks>
-        ///If you need to check that input list is not null and not empty, consider using the <see cref="IsNotNullOrEmpty{T}(IList{T})"/>
+        ///If you need to check that input list is not null and not empty, consider using the <see cref="IsNotNullOrEmpty"/>
         ///</remarks>
         public static bool IsNullOrEmpty<T>(this IList<T> input)
         {
@@ -36,13 +36,13 @@ namespace FrameworkExtensions
 
 
         /// <summary>
-        /// Check if input Ilist of T is not null an not empty.
+        /// Check if input list is not null an not empty.
         /// </summary>
         /// <typeparam name="T">Any .Net Framework Type</typeparam>
-        /// <param name="input">Input IList of T</param>
+        /// <param name="input">Input list</param>
         /// <returns>Returns true if the list is not null and not empty</returns>
         ///<remarks>
-        ///Consider using the positive version <see cref="IsNullOrEmpty{T}(IList{T})"/> instead 
+        ///Consider using the positive version <see cref="IsNullOrEmpty"/> instead 
         ///</remarks>
         public static bool IsNotNullOrEmpty<T>(this IList<T> input)
         {
