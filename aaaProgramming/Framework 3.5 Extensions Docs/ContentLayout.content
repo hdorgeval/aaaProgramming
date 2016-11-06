@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Topics>
+  <Topic id="5d9cd7a6-222f-462a-9415-3de44a4234c0" visible="True" isDefault="true" isSelected="true" apiParentMode="InsertAfter" title="Welcome to the Framework 3.5 Extensions">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="Welcome" />
+    </HelpKeywords>
+  </Topic>
+  <Topic id="30cd228d-2992-4fa7-a31a-8b2e34889efd" visible="False" isExpanded="true" title="Version History">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="version, history" />
+    </HelpKeywords>
+    <Topic id="26a30043-bfc4-483b-8ca9-d86189838095" visible="False" title="Version 1.0.0.0">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="version, 1.0.0.0" />
+      </HelpKeywords>
+    </Topic>
+  </Topic>
+</Topics>

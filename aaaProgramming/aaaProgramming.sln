@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework 3.5 Extensions", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework 3.5 Extensions Tests", "Framework 3.5 Extensions Tests\Framework 3.5 Extensions Tests.csproj", "{1442BC52-17E5-408D-9C2A-176F5FF0DF2B}"
 EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "Framework 3.5 Extensions Sandcastle", "Framework 3.5 Extensions Docs\Framework 3.5 Extensions Sandcastle.shfbproj", "{D2CCD2A1-5381-41A6-9204-7C9775E72E03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1442BC52-17E5-408D-9C2A-176F5FF0DF2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1442BC52-17E5-408D-9C2A-176F5FF0DF2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1442BC52-17E5-408D-9C2A-176F5FF0DF2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2CCD2A1-5381-41A6-9204-7C9775E72E03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2CCD2A1-5381-41A6-9204-7C9775E72E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2CCD2A1-5381-41A6-9204-7C9775E72E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2CCD2A1-5381-41A6-9204-7C9775E72E03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

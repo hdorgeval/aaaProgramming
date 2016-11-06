@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<topic id="5d9cd7a6-222f-462a-9415-3de44a4234c0" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>Set of Framework Extensions to help you make a cleaner code and deliver high quality code more rapidly.</para>
+		</introduction>
+
+		<section>
+			<title>Getting Started</title>
+			<content>
+				<para>
+          These Framework Extensions have been designed and coded with aaaProgramming in mind.
+          See aaaProgramming for .Net developpers on Gitbook : https://www.gitbook.com/book/aaaprogramming/aaa-programming-pour-les-developpeurs-net/details 
+          (French version only available at the moment)
+        </para>
+
+				
+			</content>
+		</section>
+
+		<relatedTopics>
+      <!--
+			<link xlink:href="30cd228d-2992-4fa7-a31a-8b2e34889efd" />
+      -->
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>
