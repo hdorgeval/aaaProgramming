@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>aaaProgramming.Framework3.5Extensions</id>
+    <version>$version$</version>
+    <title>aaaProgramming - Framework 3.5 Extensions</title>
+    <authors>Henri d'Orgeval</authors>
+    <owners>Henri d'Orgeval</owners>
+    <licenseUrl>https://github.com/hdorgeval/aaaProgramming/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/hdorgeval/aaaProgramming/tree/master/aaaProgramming/Framework%203.5%20Extensions</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2016</copyright>
+    <tags>aaaProgramming Framework 3.5 Extension Methods</tags>
+  </metadata>
+
+  <files>
+		<file src="NuGet\*.*" target="content/aaaProgramming" />
+	</files>
+</package>
