@@ -57,6 +57,9 @@
   <ItemGroup>
     <Compile Include="ListExtensions\IsNullOrEmpty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringExtensions\ToStringOrDefault.cs" />
+    <Compile Include="StringExtensions\IsNullOrEmptyOrWhiteSpace.cs" />
+    <Compile Include="StringExtensions\IsNullOrEmpty.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Framework 3.5 Extensions\Framework 3.5 Extensions.csproj">
