@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -84,6 +85,96 @@ namespace FrameworkExtensions
             }
 
             return input;
+        }
+
+
+        /// <summary>
+        /// Check if input string is equal to another string.
+        /// </summary>
+        /// <param name="input">Input string</param>
+        /// <param name="value">String to compare</param>
+        /// <param name="stringComparison">StringComparison enumeration</param>
+        /// <returns>Returns true if both strings are null. 
+        /// Returns false if only one of the two string is null.
+        /// Returns the result of the call to String.Equals in all other cases.
+        /// </returns>
+        public static bool IsEqualTo(this string input, string value,StringComparison stringComparison)
+        {
+            if (input == null && value == null)
+            {
+                return true;
+            }
+
+            if (input == null)
+            {
+                return false;
+            }
+
+            if (value == null)
+            {
+                return false;
+            }
+
+            bool result = input.Equals(value, stringComparison);
+            return result;
+        }
+
+        /// <summary>
+        /// Check if input string is not equal to another string.
+        /// </summary>
+        /// <param name="input">Input string</param>
+        /// <param name="value">String to compare</param>
+        /// <param name="stringComparison">StringComparison enumeration</param>
+        /// <returns> Returns true if strings are different
+        /// </returns>
+        public static bool IsNotEqualTo(this string input, string value, StringComparison stringComparison)
+        {
+            return input.IsEqualTo(value, stringComparison) == false;
+        }
+
+        /// <summary>
+        /// Converts a string into a DateTime.
+        /// </summary>
+        /// <param name="input">Input string.</param>
+        /// <param name="datetimeFormat">Standard Date and Time format string.
+        /// For a detailed list of possible formats see:https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx
+        /// You can also use prefined values from the class <see cref="StandardDateTimeFormat"/> 
+        /// </param>
+        /// <param name="culture">String representing a culture.
+        /// Example:
+        ///         French : "fr-FR";
+        ///         US : "en-US".
+        /// </param>
+        /// <returns>Returns a DateTime object if the conversion has succedeed. Returns null otherwise.</returns>
+        public static DateTime? ToDateTimeOrDefault(this string input, string datetimeFormat, string culture)
+        {
+            if (input.IsNullOrEmptyOrWhiteSpace())
+            {
+                return null;
+            }
+
+            if (datetimeFormat.IsNullOrEmptyOrWhiteSpace())
+            {
+                return null;
+            }
+
+            if (culture.IsNullOrEmptyOrWhiteSpace())
+            {
+                return null;
+            }
+
+            var provider = new CultureInfo(culture);
+
+            DateTime result = System.DateTime.Now;
+            DateTimeStyles datetimeStyle = DateTimeStyles.None;
+            input = input.Trim();
+
+            if (System.DateTime.TryParseExact(input,datetimeFormat,provider,datetimeStyle,out result))
+            {
+                return result;
+            }
+
+            return null;
         }
     }
 }
