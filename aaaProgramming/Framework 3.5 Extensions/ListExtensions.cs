@@ -48,5 +48,27 @@ namespace FrameworkExtensions
         {
             return input.IsNullOrEmpty() == false;
         }
+
+
+        /// <summary>
+        /// Add an item to a list only when this item is not null.
+        /// </summary>
+        /// <typeparam name="T">Any .Net Framework type.</typeparam>
+        /// <param name="input">Input List.</param>
+        /// <param name="value">Item to be added to the list. This item will be added if it is not null.</param>
+        public static void AddWhenIsNotNull<T>(this IList<T> input, T value)
+        {
+            if (input == null)
+            {
+                return;
+            }
+
+            if (value == null)
+            {
+                return;
+            }
+
+            input.Add(value);
+        }
     }
 }

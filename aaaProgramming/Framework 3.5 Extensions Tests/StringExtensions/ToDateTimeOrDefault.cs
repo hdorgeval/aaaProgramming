@@ -181,5 +181,125 @@ namespace FrameworkExtensionsTests.StringExtensions
         }
 
 
+        [TestMethod]
+        public void ShouldReturnValidDateTimeWhenInputIsShortDateFrAndDatetimeFormatIsShortDatePatternAndCultureIsFrenchFrance()
+        {
+            //Arrange
+            string input = @"28/05/2017";
+            string datetimeFormat = StandardDateTimeFormat.ShortDatePattern;
+            string culture = "fr-FR";
+
+            //Act
+            var result = input.ToDateTimeOrDefault(datetimeFormat, culture);
+
+            //Assert
+            DateTime? expected = new DateTime(2017,05,28);
+            if (result != expected)
+            {
+                Assert.Fail();
+            }
+        }
+
+
+        [TestMethod]
+        public void ShouldReturnValidDateTimeWhenInputIsShortDateUSAndDatetimeFormatIsShortDatePatternAndCultureIsEnglishUS()
+        {
+            //Arrange
+            string input = @"05/28/2017";
+            string datetimeFormat = StandardDateTimeFormat.ShortDatePattern;
+            string culture = "en-US";
+
+            //Act
+            var result = input.ToDateTimeOrDefault(datetimeFormat, culture);
+
+            //Assert
+            DateTime? expected = new DateTime(2017, 05, 28);
+            if (result != expected)
+            {
+                Assert.Fail();
+            }
+        }
+
+
+        [TestMethod]
+        public void ShouldReturnValidDateTimeWhenInputIsShortDateShortTimeFrAndDatetimeFormatIsShortDateShortTimePatternAndCultureIsFrenchFrance()
+        {
+            //Arrange
+            string input = @"28/05/2017 13:45";
+            string datetimeFormat = StandardDateTimeFormat.ShortDateShortTimePattern;
+            string culture = "fr-FR";
+
+            //Act
+            var result = input.ToDateTimeOrDefault(datetimeFormat, culture);
+
+            //Assert
+            DateTime? expected = new DateTime(2017, 05, 28,13,45,00);
+            if (result != expected)
+            {
+                Assert.Fail();
+            }
+        }
+
+
+        [TestMethod]
+        public void ShouldReturnValidDateTimeWhenInputIsShortDateLongTimeFrAndDatetimeFormatIsShortDateLongTimePatternAndCultureIsFrenchFrance()
+        {
+            //Arrange
+            string input = @"28/05/2017 13:45:30";
+            string datetimeFormat = StandardDateTimeFormat.ShortDateLongTimePattern;
+            string culture = "fr-FR";
+
+            //Act
+            var result = input.ToDateTimeOrDefault(datetimeFormat, culture);
+
+            //Assert
+            DateTime? expected = new DateTime(2017, 05, 28, 13, 45, 30);
+            if (result != expected)
+            {
+                Assert.Fail();
+            }
+        }
+
+
+        [TestMethod]
+        public void ShouldReturnValidDateTimeWhenInputIsShortDateShortTimeUSAndDatetimeFormatIsShortDateShortTimePatternAndCultureIsEnglishUS()
+        {
+            //Arrange
+            string input = @"05/28/2017 1:45 PM";
+            string datetimeFormat = StandardDateTimeFormat.ShortDateShortTimePattern;
+            string culture = "en-US";
+
+            //Act
+            var result = input.ToDateTimeOrDefault(datetimeFormat, culture);
+
+            //Assert
+            DateTime? expected = new DateTime(2017, 05, 28, 13, 45, 00);
+            if (result != expected)
+            {
+                Assert.Fail();
+            }
+        }
+
+
+        [TestMethod]
+        public void ShouldReturnValidDateTimeWhenInputIsShortDateLongTimeUSAndDatetimeFormatIsShortDateLongTimePatternAndCultureIsEnglishUS()
+        {
+            //Arrange
+            string input = @"05/28/2017 1:45:30 PM";
+            string datetimeFormat = StandardDateTimeFormat.ShortDateLongTimePattern;
+            string culture = "en-US";
+
+            //Act
+            var result = input.ToDateTimeOrDefault(datetimeFormat, culture);
+
+            //Assert
+            DateTime? expected = new DateTime(2017, 05, 28, 13, 45, 30);
+            if (result != expected)
+            {
+                Assert.Fail();
+            }
+        }
+
+
     }
 }
