@@ -6,7 +6,7 @@ using System.Text;
 namespace FrameworkExtensions
 {
     /// <summary>
-    /// Extensions Methods for the IList types
+    /// Extension Methods for the IList types
     /// </summary>
     public static partial class ListExtensions
     {

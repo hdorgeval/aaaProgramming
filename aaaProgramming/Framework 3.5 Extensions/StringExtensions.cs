@@ -7,7 +7,7 @@ using System.Text;
 namespace FrameworkExtensions
 {
     /// <summary>
-    /// Extensions Methods for the System.String type
+    /// Extension Methods for the System.String type
     /// </summary>
     public static partial class StringExtensions
     {
@@ -136,7 +136,7 @@ namespace FrameworkExtensions
         /// Converts a string into a DateTime.
         /// </summary>
         /// <param name="input">Input string.</param>
-        /// <param name="datetimeFormat">Standard Date and Time format string.
+        /// <param name="dateTimeFormat">Standard Date and Time format string.
         /// For a detailed list of possible formats see:https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx
         /// You can also use prefined values from the class <see cref="StandardDateTimeFormat"/> 
         /// </param>
@@ -146,14 +146,15 @@ namespace FrameworkExtensions
         ///         US : "en-US".
         /// </param>
         /// <returns>Returns a DateTime object if the conversion has succedeed. Returns null otherwise.</returns>
-        public static DateTime? ToDateTimeOrDefault(this string input, string datetimeFormat, string culture)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
+        public static DateTime? ToDateTimeOrDefault(this string input, string dateTimeFormat, string culture)
         {
             if (input.IsNullOrEmptyOrWhiteSpace())
             {
                 return null;
             }
 
-            if (datetimeFormat.IsNullOrEmptyOrWhiteSpace())
+            if (dateTimeFormat.IsNullOrEmptyOrWhiteSpace())
             {
                 return null;
             }
@@ -169,7 +170,7 @@ namespace FrameworkExtensions
             DateTimeStyles datetimeStyle = DateTimeStyles.None;
             input = input.Trim();
 
-            if (System.DateTime.TryParseExact(input,datetimeFormat,provider,datetimeStyle,out result))
+            if (System.DateTime.TryParseExact(input,dateTimeFormat,provider,datetimeStyle,out result))
             {
                 return result;
             }
