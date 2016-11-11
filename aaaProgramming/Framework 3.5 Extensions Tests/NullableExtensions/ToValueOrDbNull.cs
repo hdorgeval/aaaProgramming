@@ -7,21 +7,19 @@ using FrameworkExtensions;
 namespace FrameworkExtensionsTests.NullableExtensions
 {
     [TestClass]
-    public class ToValueOrDefault
+    public class ToValueOrDbNull
     {
         [TestMethod]
-        public void ShouldReturnDefaultValueWhenInputIsNull()
+        public void ShouldReturnDbNullWhenInputIsNull()
         {
             //Arrange
             int? input = null;
-            int defaultValue = 0;
-
-
+            
             //Act
-            var result = input.ToValueOrDefault(defaultValue);
+            var result = input.ToValueOrDbNull();
 
             //Assert
-            var expected = defaultValue;
+            var expected = DBNull.Value;
             if (result != expected)
             {
                 Assert.Fail();
@@ -30,18 +28,16 @@ namespace FrameworkExtensionsTests.NullableExtensions
 
 
         [TestMethod]
-        public void ShouldReturnDefaultValueWhenInputIsNotNullAndHasNoValue()
+        public void ShouldReturnDbNullValueWhenInputHasNoValue()
         {
             //Arrange
             int? input = new System.Nullable<int>();
-            int defaultValue = 0;
-
 
             //Act
-            var result = input.ToValueOrDefault(defaultValue);
+            var result = input.ToValueOrDbNull();
 
             //Assert
-            var expected = defaultValue;
+            var expected = DBNull.Value;
             if (result != expected)
             {
                 Assert.Fail();
@@ -52,20 +48,20 @@ namespace FrameworkExtensionsTests.NullableExtensions
         public void ShouldReturnValueWhenInputIsNotNullAndHasValue()
         {
             //Arrange
-            int? input = 1;
-            int defaultValue = 0;
-
+            int? input = 5;
 
             //Act
-            var result = input.ToValueOrDefault(defaultValue);
+            var result = input.ToValueOrDbNull();
 
             //Assert
-            var expected = 1;
-            if (result != expected)
+            var expected = input.Value;
+            if ((int)result != expected)
             {
                 Assert.Fail();
             }
         }
+
+
 
 
     }

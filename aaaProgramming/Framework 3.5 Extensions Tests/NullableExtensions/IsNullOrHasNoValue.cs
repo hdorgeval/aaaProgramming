@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using FrameworkExtensions;
 
 
-namespace FrameworkExtensionsTests.StringExtensions
+namespace FrameworkExtensionsTests.NullableExtensions
 {
     [TestClass]
     public class IsNullOrHasNoValue
