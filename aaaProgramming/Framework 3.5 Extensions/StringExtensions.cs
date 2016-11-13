@@ -177,5 +177,64 @@ namespace FrameworkExtensions
 
             return null;
         }
+
+        /// <summary>
+        /// Remove wellknown currency symbols (€,$,£,¥,₩,₺) and any one additionnaly supplied. 
+        /// </summary>
+        /// <param name="input">Input string that represents a currency number prefixed or postfixed with a currency symbol.</param>
+        /// <param name="values">Additional currency symbols that should be removed from input string</param>
+        /// <returns>returns the input string without any currency symbol.</returns>
+        public static string RemoveCurrencySymbol(this string input, params string[] values)
+        {
+            if (input.IsNullOrEmptyOrWhiteSpace())
+            {
+                return input;
+            }
+
+            input = input.Replace("€", string.Empty)
+                         .Replace("$", string.Empty)
+                         .Replace("£", string.Empty)
+                         .Replace("¥", string.Empty)
+                         .Replace("₩", string.Empty)
+                         .Replace("₺", string.Empty);
+
+            if (values.IsNullOrEmpty())
+            {
+                return input;
+            }
+
+            foreach (var item in values)
+            {
+                input = input.Replace(item, string.Empty);
+            }
+
+            return input;
+        }
+
+
+        /// <summary>
+        /// Converts a string into System.Int32 (int).
+        /// </summary>
+        /// <param name="input">Input string to be converted to an int.</param>
+        /// <returns>Returns an integer System.Int32 if the conversion succeeds. Returns null otherwise.</returns>
+        public static int? ToInt32OrDefault(this string input)
+        {
+            if (input.IsNullOrEmptyOrWhiteSpace())
+            {
+                return null;
+            }
+
+            input = input.Replace(" ", string.Empty);
+            input = input.Replace(CultureInfo.CurrentCulture.NumberFormat.NumberGroupSeparator, string.Empty);
+            input = input.RemoveCurrencySymbol();
+
+            int value = 0;
+            if (System.Int32.TryParse(input,out value))
+            {
+                return value;
+            }
+
+            return null;
+        }
     }
 }

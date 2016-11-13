@@ -63,6 +63,8 @@
     <Compile Include="NullableExtensions\ToValueOrDefault.cs" />
     <Compile Include="NullableExtensions\IsNullOrHasNoValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringExtensions\RemoveCurrencySymbols.cs" />
+    <Compile Include="StringExtensions\ToInt32OrDefault.cs" />
     <Compile Include="StringExtensions\ToDateTimeOrDefault.cs" />
     <Compile Include="StringExtensions\IsEqualTo.cs" />
     <Compile Include="StringExtensions\ToStringOrDefault.cs" />
