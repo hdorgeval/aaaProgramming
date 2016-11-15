@@ -229,7 +229,26 @@ namespace FrameworkExtensionsTests.StringExtensions
             string input = "+1 234€";
 
             //Act
-            var result = input.ToInt32OrDefault();
+            var result = input.RemoveCurrencySymbol(CurrencySymbol.Euro)
+                              .ToInt32OrDefault();
+
+            //Assert
+            int? expected = 1234;
+            if (result != expected)
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void ShouldReturn1234WhenInputIs1234WithThousandsSeparatorFrAndPositiveSignWithCurrencyEuroNoExplicit()
+        {
+            //Arrange
+            string input = "+1 234€";
+
+            //Act
+            var result = input.RemoveCurrencySymbol()
+                              .ToInt32OrDefault();
 
             //Assert
             int? expected = 1234;

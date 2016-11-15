@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1442BC52-17E5-408D-9C2A-176F5FF0DF2B}</ProjectGuid>
+    <ProjectGuid>{B6292256-A452-493A-977A-5F1585D59053}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FrameworkExtensionsTests</RootNamespace>
-    <AssemblyName>Framework3.5Extensions.Tests</AssemblyName>
+    <RootNamespace>Frameworks_3._5_Extensions_Specs</RootNamespace>
+    <AssemblyName>Frameworks 3.5 Extensions Specs</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -39,7 +39,6 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -49,34 +48,30 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-          <Private>False</Private>
-        </Reference>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ListExtensions\AddWhenIsNotNull.cs" />
-    <Compile Include="ListExtensions\IsNullOrEmpty.cs" />
-    <Compile Include="NullableExtensions\IsEqualTo.cs" />
-    <Compile Include="NullableExtensions\ToValueOrDbNull.cs" />
-    <Compile Include="NullableExtensions\ToValueOrDefault.cs" />
-    <Compile Include="NullableExtensions\IsNullOrHasNoValue.cs" />
+    <Compile Include="StringExtensions\IsNullOrEmpty.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsNullOrEmpty.feature</DependentUpon>
+    </Compile>
+    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringExtensions\RemoveCurrencySymbol.cs" />
-    <Compile Include="StringExtensions\ToInt32OrDefault.cs" />
-    <Compile Include="StringExtensions\ToDateTimeOrDefault.cs" />
-    <Compile Include="StringExtensions\IsEqualTo.cs" />
-    <Compile Include="StringExtensions\ToStringOrDefault.cs" />
-    <Compile Include="StringExtensions\IsNullOrEmptyOrWhiteSpace.cs" />
-    <Compile Include="StringExtensions\IsNullOrEmpty.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Framework 3.5 Extensions\Framework 3.5 Extensions.csproj">
-      <Project>{1055a436-9f26-44ad-9d12-dc71f7f43f23}</Project>
-      <Name>Framework 3.5 Extensions</Name>
-    </ProjectReference>
+    <None Include="App.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StringExtensions\IsNullOrEmpty.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>IsNullOrEmpty.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

@@ -179,44 +179,64 @@ namespace FrameworkExtensions
         }
 
         /// <summary>
-        /// Remove wellknown currency symbols (€,$,£,¥,₩,₺) and any one additionnaly supplied. 
+        /// Remove supplied currency symbol from input string. 
         /// </summary>
         /// <param name="input">Input string that represents a currency number prefixed or postfixed with a currency symbol.</param>
-        /// <param name="values">Additional currency symbols that should be removed from input string</param>
-        /// <returns>returns the input string without any currency symbol.</returns>
-        public static string RemoveCurrencySymbol(this string input, params string[] values)
+        /// <param name="value">Currency symbol that should be removed from input string</param>
+        /// <returns>Returns the input string without any currency symbol.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
+        public static string RemoveCurrencySymbol(this string input, string value)
         {
             if (input.IsNullOrEmptyOrWhiteSpace())
             {
                 return input;
             }
 
-            input = input.Replace("€", string.Empty)
-                         .Replace("$", string.Empty)
-                         .Replace("£", string.Empty)
-                         .Replace("¥", string.Empty)
-                         .Replace("₩", string.Empty)
-                         .Replace("₺", string.Empty);
-
-            if (values.IsNullOrEmpty())
+            if (value.IsNullOrEmptyOrWhiteSpace())
             {
                 return input;
             }
 
-            foreach (var item in values)
+            input = input.Replace(value, string.Empty)
+                         .Trim();
+                        
+            return input;
+        }
+
+
+        private static string[] _currencySymbols = new string[] {  "₽", "₺", "₾", "₹", "₮", "$", "$b", "$U", "£", "¥", "￥", "₡", "₩", "₪", "₫", "฿", "€", "B/.", "Bs", "BZ$", "C$", "CHF", "Din.", "Ft", "Gs", "HK$", "J$", "Kč", "kn", "kr", "kr.", "L.", "lei", "Lek", "Ls", "man.", "MOP", "NT$", "Php", "Q", "R", "R$", "RD$", "Rp", "Rs", "S", "S/.", "SFr.", "su'm", "TT$", "Z$", "zł", "грн.", "ден.", "Дин.", "лв", "ман.", "р.", "сом", "сўм", "Т", "դր.", "ج.م.‏", "د.ا.‏", "د.إ.‏", "د.ب.‏", "د.ت.‏", "د.ج.‏", "د.ع.‏", "د.ك.‏", "د.ل.‏", "د.م.‏", "ر.س.‏", "ر.ع.‏", "ر.ق.‏", "ر.ي.‏", "ريال", "ل.س.‏", "ل.ل.‏", "ރ." };
+
+        /// <summary>
+        /// Remove currency symbol from input string.
+        /// </summary>
+        /// <param name="input">Input string that represents a currency number prefixed or postfixed with a currency symbol.</param>
+        /// <returns>Returns the input string without its currency symbol.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
+        public static string RemoveCurrencySymbol(this string input)
+        {
+            if (input.IsNullOrEmptyOrWhiteSpace())
             {
-                input = input.Replace(item, string.Empty);
+                return input;
+            }
+
+            foreach (var item in _currencySymbols)
+            {
+                if (input.Contains(item) )
+                {
+                    var result = input.RemoveCurrencySymbol(item);
+                    return result;
+                }
             }
 
             return input;
         }
-
 
         /// <summary>
         /// Converts a string into System.Int32 (int).
         /// </summary>
         /// <param name="input">Input string to be converted to an int.</param>
         /// <returns>Returns an integer System.Int32 if the conversion succeeds. Returns null otherwise.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
         public static int? ToInt32OrDefault(this string input)
         {
             if (input.IsNullOrEmptyOrWhiteSpace())
@@ -226,8 +246,7 @@ namespace FrameworkExtensions
 
             input = input.Replace(" ", string.Empty);
             input = input.Replace(CultureInfo.CurrentCulture.NumberFormat.NumberGroupSeparator, string.Empty);
-            input = input.RemoveCurrencySymbol();
-
+            
             int value = 0;
             if (System.Int32.TryParse(input,out value))
             {

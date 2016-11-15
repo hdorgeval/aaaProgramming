@@ -7,14 +7,13 @@ using FrameworkExtensions;
 namespace FrameworkExtensionsTests.StringExtensions
 {
     [TestClass]
-    public class RemoveCurrencySymbols
+    public class RemoveCurrencySymbol
     {
         [TestMethod]
         public void ShouldReturnNullWhenInputIsNull()
         {
             //Arrange
             string input = null;
-            string[] values = null;
 
             //Act
             var result = input.RemoveCurrencySymbol();
@@ -32,7 +31,6 @@ namespace FrameworkExtensionsTests.StringExtensions
         {
             //Arrange
             string input = string.Empty;
-            string[] values = null;
 
             //Act
             var result = input.RemoveCurrencySymbol();
@@ -50,7 +48,6 @@ namespace FrameworkExtensionsTests.StringExtensions
         {
             //Arrange
             string input = " ";
-            string[] values = null;
 
             //Act
             var result = input.RemoveCurrencySymbol();
@@ -68,7 +65,6 @@ namespace FrameworkExtensionsTests.StringExtensions
         {
             //Arrange
             string input = "   ";
-            string[] values = null;
 
             //Act
             var result = input.RemoveCurrencySymbol();
@@ -86,7 +82,23 @@ namespace FrameworkExtensionsTests.StringExtensions
         {
             //Arrange
             string input = "123€";
-            string[] values = null;
+
+            //Act
+            var result = input.RemoveCurrencySymbol(CurrencySymbol.Euro);
+
+            //Assert
+            string expected = "123";
+            if (result != expected)
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void ShouldReturn123WhenInputIs123EuroNoExplicit()
+        {
+            //Arrange
+            string input = "123€";
 
             //Act
             var result = input.RemoveCurrencySymbol();
@@ -104,7 +116,23 @@ namespace FrameworkExtensionsTests.StringExtensions
         {
             //Arrange
             string input = "123$";
-            string[] values = null;
+
+            //Act
+            var result = input.RemoveCurrencySymbol(CurrencySymbol.Dollar);
+
+            //Assert
+            string expected = "123";
+            if (result != expected)
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void ShouldReturn123WhenInputIs123UsDollardNoExplicit()
+        {
+            //Arrange
+            string input = "123$";
 
             //Act
             var result = input.RemoveCurrencySymbol();
@@ -122,7 +150,23 @@ namespace FrameworkExtensionsTests.StringExtensions
         {
             //Arrange
             string input = "123£";
-            string[] values = null;
+
+            //Act
+            var result = input.RemoveCurrencySymbol(CurrencySymbol.Pound);
+
+            //Assert
+            string expected = "123";
+            if (result != expected)
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void ShouldReturn123WhenInputIs123EnglishPoundNoExplicit()
+        {
+            //Arrange
+            string input = " 123 £ ";
 
             //Act
             var result = input.RemoveCurrencySymbol();
@@ -142,7 +186,7 @@ namespace FrameworkExtensionsTests.StringExtensions
             string input = "123¥";
 
             //Act
-            var result = input.RemoveCurrencySymbol();
+            var result = input.RemoveCurrencySymbol(CurrencySymbol.Yen);
 
             //Assert
             string expected = "123";
@@ -153,13 +197,83 @@ namespace FrameworkExtensionsTests.StringExtensions
         }
 
         [TestMethod]
+        public void ShouldReturn123WhenInputIs123YenNoExplicit()
+        {
+            //Arrange
+            string input = "123¥";
+
+            //Act
+            var result = input.RemoveCurrencySymbol();
+
+            //Assert
+            string expected = "123";
+            if (result != expected)
+            {
+                Assert.Fail();
+            }
+        }
+
+
+        [TestMethod]
+        public void ShouldReturn123WhenInputIs123SwissFranc()
+        {
+            //Arrange
+            string input = "123 CHF";
+
+            //Act
+            var result = input.RemoveCurrencySymbol(CurrencySymbol.SwissFranc);
+
+            //Assert
+            string expected = "123";
+            if (result != expected)
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void ShouldReturn123WhenInputIs123SwissFrancNoExplicit()
+        {
+            //Arrange
+            string input = "123 CHF";
+
+            //Act
+            var result = input.RemoveCurrencySymbol();
+
+            //Assert
+            string expected = "123";
+            if (result != expected)
+            {
+                Assert.Fail();
+            }
+        }
+
+
+        [TestMethod]
         public void ShouldReturn123WhenInputIs123VietnamDong()
         {
             //Arrange
-            string input = "123₫";
+            string input = "123 ₫";
 
             //Act
             var result = input.RemoveCurrencySymbol("₫");
+
+            //Assert
+            string expected = "123";
+            if (result != expected)
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void ShouldReturn123WhenInputIs123VietnamDongNoExplicit()
+        {
+            //Arrange
+            string input = "123 ₫";
+
+            //Act
+            var result = input.RemoveCurrencySymbol();
 
             //Assert
             string expected = "123";

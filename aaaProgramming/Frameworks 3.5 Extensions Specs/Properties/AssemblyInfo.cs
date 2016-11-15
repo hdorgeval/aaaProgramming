@@ -1,27 +1,26 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Framework 3.5 Extensions")]
-[assembly: AssemblyDescription("Set of Framework Extensions to help you make a cleaner code and deliver high quality code more rapidly.")]
+[assembly: AssemblyTitle("Frameworks 3.5 Extensions Specs")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Henri d'Orgeval")]
-[assembly: AssemblyProduct("Framework 3.5 Extensions")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Frameworks 3.5 Extensions Specs")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: CLSCompliant(true)]
+
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1055a436-9f26-44ad-9d12-dc71f7f43f23")]
+[assembly: Guid("b6292256-a452-493a-977a-5f1585d59053")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -33,6 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyInformationalVersion("1.0.0-beta8")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
