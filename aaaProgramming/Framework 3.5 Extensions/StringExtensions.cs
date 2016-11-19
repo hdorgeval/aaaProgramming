@@ -255,5 +255,47 @@ namespace FrameworkExtensions
 
             return null;
         }
+
+        /// <summary>
+        /// Check if input string is found in the specified list of values.
+        /// </summary>
+        /// <param name="input">Input string</param>
+        /// <param name="values">List of strings in which to search for the input string</param>
+        /// <param name="stringComparison">StringComparison enumeration</param>
+        /// <returns>Returns true if the input string has been found in the list of <paramref name="values"/> </returns>
+        /// <example>
+        /// <code language="C#" title="How to check if user input fits a discrete set of possible values">
+        ///     string[] validValues = new string[] { "false", "no", "faux", "non" };
+        ///     string userInput = someTextBox.Text;
+        ///     if ( userInput.IsIn(validValues,StringComparison.CurrentCultureIgnoreCase))
+        ///     {
+        ///         //process user input.
+        ///     }
+        /// </code> 
+        /// </example>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "1")]
+        public static bool IsIn(this string input, IList<string> values,StringComparison stringComparison)
+        {
+
+            if (input.IsNullOrEmpty())
+            {
+                return false;
+            }
+
+            if (values.IsNullOrEmpty())
+            {
+                return false;
+            }
+
+            foreach (var item in values)
+            {
+                if (item.IsEqualTo(input,stringComparison))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
