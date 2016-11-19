@@ -6,6 +6,6 @@ This project contains a set of Framework Extensions for the .Net Framework 3.5 (
 
 This set of Framework Extensions will help you make a cleaner code and will also help you deliver high quality code more rapidly.
 
-The library Documentation and Specification is provided by Sandcstle and Specflow.
+The library Documentation and Specification is provided by Sandcastle and Specflow.
 
 This library is also published as a [nuget package](https://www.nuget.org/packages/aaaProgramming.Framework3.5Extensions)
