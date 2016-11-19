@@ -1,11 +1,18 @@
 ﻿Feature: IsNullOrEmpty
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+	In order to avoid manipulating a null or empty string
+	As a C# developper
+	I want to be able to check once either of these states on any string object
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+
+Scenario: Should return true When Input string is null
+	Given an input string object whose value is null
+	When I call IsNullOrEmpty on this string
+	Then the result should be true
+
+Scenario: Should return true When Input string is empty
+	Given an input string object whose value is empty
+	When I call IsNullOrEmpty on this string
+	Then the result should be true
+
+
+
