@@ -297,5 +297,47 @@ namespace FrameworkExtensions
 
             return false;
         }
+
+
+        private static HashSet<string> trueValues = new HashSet<string>() { "true", "True","TRUE","YES", "Yes", "yes", "y","Y", "vrai","oui", "ok", "OK","1", "o", "O" };
+        private static HashSet<string> falseValues = new HashSet<string>() { "false", "False","FALSE", "no", "No","NO", "n","N", "faux", "Faux","Non", "NON", "non", "Ko","KO", "ko", "0"};
+
+        /// <summary>
+        /// Convert input string to a boolean.
+        /// </summary>
+        /// <param name="input">Input string</param>
+        /// <returns>returns a boolean if the conversion has succeeded. returns null otherwise</returns>
+        /// <example>
+        ///     <code language="C#" title="How to safely convert a string to a boolean">
+        ///         bool? result = "true".ToBooleanOrDefault(); //returns true
+        ///         bool? result = "ok".ToBooleanOrDefault(); //returns true
+        ///         bool? result = "yes".ToBooleanOrDefault(); //returns true
+        ///         bool? result = "1".ToBooleanOrDefault(); //returns true
+        ///         bool? result = "false".ToBooleanOrDefault(); //returns false
+        ///         bool? result = "0".ToBooleanOrDefault(); //returns false
+        ///         bool? result = "xyz".ToBooleanOrDefault(); //returns null
+        ///     </code>
+        /// </example>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
+        public static bool? ToBooleanOrDefault(this string input)
+        {
+            if (input.IsNullOrEmptyOrWhiteSpace())
+            {
+                return null;
+            }
+
+            input = input.Trim();
+            if (trueValues.Contains(input))
+            {
+                return true;
+            }
+
+            if (falseValues.Contains(input))
+            {
+                return false;
+            }
+
+            return null;
+        }
     }
 }

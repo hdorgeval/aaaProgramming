@@ -65,6 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensions\IsIn.cs" />
     <Compile Include="StringExtensions\RemoveCurrencySymbol.cs" />
+    <Compile Include="StringExtensions\ToBooleanOrDefault.cs" />
     <Compile Include="StringExtensions\ToInt32OrDefault.cs" />
     <Compile Include="StringExtensions\ToDateTimeOrDefault.cs" />
     <Compile Include="StringExtensions\IsEqualTo.cs" />
