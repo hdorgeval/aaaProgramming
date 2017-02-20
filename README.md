@@ -1,6 +1,6 @@
 # aaaProgramming
 
-This project is the code companion of the book [aaaProgramming for .Net Developers](https://www.gitbook.com/book/aaaprogramming/aaa-programming-pour-les-developpeurs-net/details).
+This project is the code companion of the book [aaaProgramming for .Net Developers](https://www.gitbook.com/book/hdorgeval/aaa-programming-pour-les-developpeurs-net).
 
 This project contains a set of Framework Extensions for the .Net Framework 3.5 ( These Framework Extensions will be also provided for the Framework 4.0 and above as soon the version for the .Net 3.5 is released).
 
